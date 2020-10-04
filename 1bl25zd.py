@@ -42,9 +42,9 @@ def compare(X,Y):
         if Y == 4: return('1 GBR = %s RUB' % (funt()))
 
     if X == 4:
-        if Y == 1: return('1 RUB = %s USD' % (dollar()))
-        if Y == 2: return('1 RUB = %s EUR' % (euro()))
-        if Y == 3: return('1 RUB = 1 GBR' % (funt()))
+        if Y == 1: return('1 RUB = %s USD' % (1/dollar()))
+        if Y == 2: return('1 RUB = %s EUR' % (1/euro()))
+        if Y == 3: return('1 RUB = %s GBR' % (1/funt()))
         if Y == 4: return('1 RUB = 1 RUB')
 
 X,Y=map(int, input('Currency Converter\nX > Y\n1- EUR\n2- USD\n3- GBR\n4- RUB\nPrint what are you want(for example 3 1): ').split())
