@@ -47,6 +47,7 @@ def compare(X,Y,value):
         if Y == 3: return('%s RUB = %s GBR' % (value,value/funt()))
         if Y == 4: return('%s RUB = %s RUB' % (value,value))
 
-value,X,Y=map(int, input('Currency Converter\nvalue*X > Y\n1- USD\n2- EUR\n3- GBR\n4- RUB\nPrint what are you want(for example 300 2 4): ').split())
+value,X,Y=map(int, input('Currency Converter\nVALUE*X > Y\n1- USD\n2- EUR\n3- GBR\n4- RUB\nPrint VALUE X Y(for example 300 2 4): ').split())
 print(compare(X,Y,value))
 #вводить 4 не рекомендую, иначе захочется свалить из этой страны
+#https://apilayer.com/
