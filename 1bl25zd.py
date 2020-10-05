@@ -22,31 +22,31 @@ def funt():
     soup = BeautifulSoup(full_page.content, 'html.parser')
     return float(str(soup.findAll('span', {'class': 'DFlfde SwHCTb'})[0].text).replace(',','.'))
 
-def compare(X,Y):
+def compare(X,Y,value):
     if X == 1:
-        if Y == 1: return '1 USD = 1 USD'
-        if Y == 2: return '1 USD = %s EUR' % (dollar() / euro())
-        if Y == 3: return '1 USD = %s GBR' % (dollar() / funt())
-        if Y == 4: return '1 USD = %s RUB' % (dollar())
+        if Y == 1: return('%s USD = %s USD' % (value,value))
+        if Y == 2: return('%s USD = %s EUR' % (value,value*dollar() / euro()))
+        if Y == 3: return('%s USD = %s GBR' % (value,value*dollar() / funt()))
+        if Y == 4: return('%s USD = %s RUB' % (value,value*dollar()))
 
     if X == 2:
-        if Y == 1: return '1 EUR = %s USD' % (euro() / dollar())
-        if Y == 2: return('1 EUR = 1 EUR')
-        if Y == 3: return('1 EUR = %s GBR' % (euro() / funt()))
-        if Y == 4: return('1 EUR = %s RUB' % (euro()))
+        if Y == 1: return('%s EUR = %s USD' % (value,value*euro() / dollar()))
+        if Y == 2: return('%s EUR = %s EUR' % (value,value))
+        if Y == 3: return('%s EUR = %s GBR' % (value,value*euro() / funt()))
+        if Y == 4: return('%s EUR = %s RUB' % (value,value*euro()))
 
     if X == 3:
-        if Y == 1: return('1 GBR = %s USD' % (funt() / dollar()))
-        if Y == 2: return('1 GBR = %s EUR' % (funt() / euro()))
-        if Y == 3: return('1 GBR = 1 GBR')
-        if Y == 4: return('1 GBR = %s RUB' % (funt()))
+        if Y == 1: return('%s GBR = %s USD' % (value,value*funt() / dollar()))
+        if Y == 2: return('%s GBR = %s EUR' % (value,value*funt() / euro()))
+        if Y == 3: return('%s GBR = %s GBR' % (value,value))
+        if Y == 4: return('%s GBR = %s RUB' % (value,value*funt()))
 
     if X == 4:
-        if Y == 1: return('1 RUB = %s USD' % (1/dollar()))
-        if Y == 2: return('1 RUB = %s EUR' % (1/euro()))
-        if Y == 3: return('1 RUB = %s GBR' % (1/funt()))
-        if Y == 4: return('1 RUB = 1 RUB')
+        if Y == 1: return('%s RUB = %s USD' % (value, value/dollar()))
+        if Y == 2: return('%s RUB = %s EUR' % (value,value/euro()))
+        if Y == 3: return('%s RUB = %s GBR' % (value,value/funt()))
+        if Y == 4: return('%s RUB = %s RUB' % (value,value))
 
-X,Y=map(int, input('Currency Converter\nX > Y\n1- EUR\n2- USD\n3- GBR\n4- RUB\nPrint what are you want(for example 3 1): ').split())
-print(compare(X,Y))
+value,X,Y=map(int, input('Currency Converter\nvalue*X > Y\n1- USD\n2- EUR\n3- GBR\n4- RUB\nPrint what are you want(for example 300 2 4): ').split())
+print(compare(X,Y,value))
 #вводить 4 не рекомендую, иначе захочется свалить из этой страны
